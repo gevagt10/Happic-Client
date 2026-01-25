@@ -15,14 +15,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/api/products": ["libs/api/products/src/index.ts"],
-      "@org/models": ["libs/shared/models/src/index.ts"],
-      "@org/shop/data": ["libs/shop/data/src/index.ts"],
-      "@org/shop/feature-product-detail": [
-        "libs/shop/feature-product-detail/src/index.ts"
+      "@happic/happic-user/environments": [
+        "apps/happic-user/src/environments/environment.ts"
       ],
-      "@org/shop/feature-products": ["libs/shop/feature-products/src/index.ts"],
-      "@org/shop/shared-ui": ["libs/shop/shared-ui/src/index.ts"]
+      "@happic/api/products": ["libs/api/products/src/index.ts"],
+      "@happic/auth/features": ["libs/auth/features/src/index.ts"],
+      "@happic/auth/ui": ["libs/auth/ui/src/index.ts"],
+      "@happic/auth/data-access": ["libs/auth/data-access/src/index.ts"],
+      "@happic/auth/testing": ["libs/auth/testing/src/index.ts"],
+      "@happic/ui-components": ["libs/ui-components/src/index.ts"],
+      "@happic/core/auth": ["libs/core/auth/data-access/src/index.ts"],
+      "@happic/core/shared": ["libs/core/shared/data-access/src/index.ts"],
+      "@happic/users/data-access": ["libs/users/data-access/src/index.ts"],
+      "@happic/users/features": ["libs/users/features/src/index.ts"],
+      "@happic/main/features": ["libs/main/features/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

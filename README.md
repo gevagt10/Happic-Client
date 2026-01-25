@@ -1,5 +1,8 @@
 # Nx Angular Repository
-
+######
+nx g @nx/angular:component --name=users --path=libs/users/features/src/lib/users --style=scss
+nx g @nx/angular:library --name=users/features --directory=libs/users/features --standalone
+#####
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
 ✨ A repository showcasing key [Nx](https://nx.dev) features for Angular monorepos ✨
@@ -15,12 +18,12 @@ This repository demonstrates a production-ready Angular monorepo with:
 
 - **6 Libraries**
 
-  - `@org/feature-products` - Product listing feature (Angular)
-  - `@org/feature-product-detail` - Product detail feature (Angular)
-  - `@org/data` - Data access layer for shop features
-  - `@org/shared-ui` - Shared UI components
-  - `@org/models` - Shared data models
-  - `@org/products` - API product service library
+  - `@happic/feature-products` - Product listing feature (Angular)
+  - `@happic/feature-product-detail` - Product detail feature (Angular)
+  - `@happic/data` - Data access layer for shop features
+  - `@happic/shared-ui` - Shared UI components
+  - `@happic/models` - Shared data models
+  - `@happic/products` - API product service library
 
 - **E2E Testing**
   - `shop-e2e` - Playwright tests for the shop application
@@ -280,3 +283,20 @@ Join the Nx community:
 - [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [YouTube](https://www.youtube.com/@nxdevtools)
 - [Blog](https://nx.dev/blog)
+
+nx g @nx/angular:library --name=features --directory=libs/auth/features --importPath=@happic/auth/features
+nx g @nx/angular:library --name=ui --directory=libs/auth/ui --importPath=@happic/auth/ui
+
+nx g @nx/angular:library --name=data-access --directory=libs/auth/data-access --importPath=@happic/auth/data-access
+
+nx g @nx/angular:library --name=testing --directory=libs/auth/testing --importPath=@happic/auth/testing
+```
+
+This should give you:
+```
+libs/
+auth/
+feature/
+ui/
+data-access/
+util-testing/

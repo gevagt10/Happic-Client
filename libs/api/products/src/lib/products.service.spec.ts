@@ -1,5 +1,5 @@
 import { ProductsService } from './products.service';
-import { ProductFilter } from '@org/models';
+import { ProductFilter } from '@happic/models';
 
 describe('ProductsService', () => {
   let service: ProductsService;

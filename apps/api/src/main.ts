@@ -1,6 +1,6 @@
 import express from 'express';
-import { ProductsService } from '@org/api/products';
-import { ApiResponse, Product, ProductFilter, PaginatedResponse } from '@org/models';
+import { ProductsService } from '@happic/api/products';
+import { ApiResponse, Product, ProductFilter, PaginatedResponse } from '@happic/models';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3333;

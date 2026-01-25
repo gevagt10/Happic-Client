@@ -1,0 +1,51 @@
+@use 'lib/variables' as *;
+
+.header {
+  height: 72px;
+  width: 100%;
+  background: $bg-card;
+  border-bottom: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  padding: 0 $spacing-2xl;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: 6px 10px;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+
+  &:hover {
+    background: $gray-100;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid $primary-blue;
+  }
+
+  .username {
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-primary;
+  }
+}
