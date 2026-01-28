@@ -21,7 +21,7 @@ export const authGuard: CanActivateFn = (): Observable<boolean> => {
   const refreshToken = storage.refreshToken;
 
   if (!refreshToken) {
-    router.navigate(['/login']);
+    router.navigate(['/auth/login']);
     return of(false);
   }
 
@@ -30,7 +30,7 @@ export const authGuard: CanActivateFn = (): Observable<boolean> => {
       return !!newToken;
     }),
     catchError(() => {
-      router.navigate(['/login']);
+      router.navigate(['/auth/login']);
       return of(false);
     }),
   );

@@ -1,6 +1,6 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { IUserProfile } from '@happic/auth/data-access';
 import { LoadingStateEnum } from '@happic/core/shared';
+import { IUserProfile } from '../interfaces/user-profile.interface';
 
 @Injectable({ providedIn: 'root' })
 export class AuthStoreService {

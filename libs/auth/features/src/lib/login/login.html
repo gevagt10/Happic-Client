@@ -1,0 +1,59 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-form">
+      <h1 class="title">Happic</h1>
+      <p class="subtitle">Sign in to manage your events</p>
+
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email"
+                 formControlName="email"
+                 type="email"
+                 placeholder="you@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password"
+                 formControlName="password"
+                 type="password"
+                 placeholder="••••••••" />
+        </div>
+
+<!--        [disabled]="loginForm.invalid"-->
+        <button class="btn primary"
+                type="submit"
+                (click)="onLoginClick()">Sign In
+        </button>
+
+        <div class="separator">
+          <span></span>
+          <p>or continue with</p>
+          <span></span>
+        </div>
+
+        <button class="btn google" type="button">
+          <span class="google-icon">G</span>
+          Sign in with Google
+        </button>
+
+        <div class="links">
+          <a href="#">Create account</a>
+          <a href="#">Forgot password?</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="login-illustration">
+      <div class="bubble">Live photos from guests</div>
+      <div class="stage"></div>
+      <div class="people">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="spotlights">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</div>

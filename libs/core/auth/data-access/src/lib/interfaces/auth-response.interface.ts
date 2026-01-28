@@ -1,4 +1,4 @@
-import { IUserProfile } from '@happic/auth/data-access';
+import { IUserProfile } from './user-profile.interface';
 
 export interface IAuthResponse {
   access_token: string;

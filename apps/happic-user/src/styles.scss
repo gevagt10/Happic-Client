@@ -1,0 +1,43 @@
+@use 'lib/variables' as *;
+
+/* =========================
+   Root sizing (CRITICAL)
+========================= */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* =========================
+   Global typography
+========================= */
+html {
+  font-family: 'Inter',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Helvetica,
+  Arial,
+  sans-serif;
+}
+
+body {
+  background: $bg-page;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   Angular root
+========================= */
+app-root {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

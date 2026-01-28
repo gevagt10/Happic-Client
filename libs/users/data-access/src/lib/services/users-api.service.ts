@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { RestApiService } from '@happic/core/shared';
-import { Observable, take, tap } from 'rxjs';
-import { IUserProfile } from '@happic/auth/data-access';
+import { Observable } from 'rxjs';
+import { IUserProfile } from '@happic/core/auth';
 
 @Injectable({providedIn: 'root'})
 export class UsersApiService {

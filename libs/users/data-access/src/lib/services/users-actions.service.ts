@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { UsersApiService } from './users-api.service';
 import { take, tap } from 'rxjs';
-import { IUserProfile } from '@happic/auth/data-access';
+import { IUserProfile } from '@happic/core/auth';
 
 @Injectable()
 export class UsersActionsService {

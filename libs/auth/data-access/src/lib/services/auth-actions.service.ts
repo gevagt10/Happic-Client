@@ -25,7 +25,6 @@ export class AuthActionsService {
           console.log(response);
           this.authStoreService.updateState(LoadingStateEnum.LOADED);
           this.authStoreService.updateToken(response.access_token);
-          this.tokenStorageService.save(response);
           this.authStoreService.updateUserProfile(response.userProfile ?? null);
 
           this.router.navigate(['/users']);
