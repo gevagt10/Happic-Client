@@ -1,25 +1,69 @@
 @use 'lib/variables' as *;
 
+/* =========================
+   HOST
+   ========================= */
 :host {
   display: block;
   height: 100%;
-}
-
-.aside {
-  height: 100%;
-  width: 260px;
+  width: 240px;
   background: linear-gradient(
       180deg,
       $indigo-900,
       $indigo-700
   );
   color: $text-white;
-  display: flex;
-  flex-direction: column;
+  transition: width 0.2s ease, transform 0.25s ease;
+  overflow: hidden;
   box-shadow: $shadow-xl;
 }
 
-/* Logo */
+/* =========================
+   COLLAPSED (DESKTOP)
+   ========================= */
+/* Hide text when collapsed */
+:host-context(.aside-collapsed) {
+  width: 64px;
+  .aside-nav {
+    padding: $spacing-sm;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 12px;
+    gap: 0;
+
+    &::before {
+      display: none; // active bar makes no sense when collapsed
+    }
+  }
+  .logo-text,
+  .nav-item span:not(.icon) {
+    display: none;
+  }
+
+  .logo-short {
+    display: inline-block; // show short logo
+    font-size: 28px;        // make it bigger
+    font-weight: 700;
+    color: $primary-light;  // or whatever color you want
+    margin-right: 0;        // optional
+  }
+}
+
+/* =========================
+   ASIDE STRUCTURE
+   ========================= */
+.aside {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   LOGO
+   ========================= */
 .aside-logo {
   height: 72px;
   display: flex;
@@ -28,10 +72,13 @@
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.4px;
-  border-bottom: 1px solid rgba($white, $alpha-10);
+  border-bottom: 1px solid rgba($white, 0.1);
+  white-space: nowrap;
 }
 
-/* Nav */
+/* =========================
+   NAV
+   ========================= */
 .aside-nav {
   padding: $spacing-lg;
   display: flex;
@@ -49,15 +96,17 @@
   color: $text-white;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background 0.15s ease;
 
   .icon {
     font-size: 18px;
     opacity: 0.9;
+    min-width: 20px;
+    text-align: center;
   }
 
   &:hover {
-    background: rgba($white, 0.08); // was too bright
+    background: rgba($white, 0.08);
   }
 
   &.active {
@@ -73,5 +122,58 @@
       border-radius: 0 4px 4px 0;
       background: $primary-light;
     }
+  }
+}
+
+/* =========================
+   CLOSE BUTTON (MOBILE)
+   ========================= */
+.close-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: $text-white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: $border-radius-sm;
+  opacity: 0.8;
+
+  &:hover {
+    background: rgba($white, 0.12);
+    opacity: 1;
+  }
+}
+
+.logo-short {
+  display: none;
+}
+
+/* =========================
+   MOBILE (OFF-CANVAS)
+   ========================= */
+@media (max-width: 768px) {
+  :host {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 240px;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  :host-context(.aside-open) {
+    transform: translateX(0);
+  }
+
+  /* On mobile we NEVER show collapsed */
+  :host-context(.aside-collapsed) {
+    width: 240px;
+  }
+}
+
+/* Hide close button on desktop */
+@media (min-width: 769px) {
+  .close-btn {
+    display: none;
   }
 }

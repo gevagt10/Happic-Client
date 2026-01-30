@@ -1,29 +1,84 @@
 @use 'lib/variables' as *;
 
-.header {
-  height: 72px;
+:host {
+  display: block;
   width: 100%;
+  height: 72px;
   background: $bg-card;
   border-bottom: 1px solid $border-light;
   box-shadow: $shadow-sm;
-  display: flex;
-  align-items: center;
+  flex-shrink: 0;
+  z-index: 100;
 }
 
+/* =========================
+   INNER
+   ========================= */
 .header-inner {
+  height: 100%;
+  max-width: 100%;      // ensure it never overflows
   width: 100%;
-  padding: 0 $spacing-2xl;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 $spacing-lg;
+  box-sizing: border-box; // include padding in width
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex: 1;       /* take remaining space */
+    min-width: 0;  /* allow text truncation */
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex-shrink: 0;          /* keep profile from shrinking */
+    min-width: max-content;  /* ✅ prevent cutting off profile */
+  }
 }
 
-.page-title {
-  font-size: 20px;
-  font-weight: 600;
+/* =========================
+   MENU BUTTON
+   ========================= */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: $border-radius-sm;
   color: $text-primary;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: rgba($primary-blue, 0.1);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
+/* =========================
+   TITLE
+   ========================= */
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: $text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* truncate if too long */
+}
+
+/* =========================
+   PROFILE
+   ========================= */
 .profile {
   display: flex;
   align-items: center;
@@ -31,21 +86,50 @@
   padding: 6px 10px;
   border-radius: $border-radius-md;
   cursor: pointer;
+  transition: background 0.2s ease;
 
   &:hover {
-    background: $gray-100;
+    background: rgba($primary-blue, 0.08);
   }
 
   .avatar {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 2px solid $primary-blue;
+    object-fit: cover;
   }
 
   .username {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
     color: $text-primary;
+    white-space: nowrap; /* prevent line break */
+  }
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+   ========================= */
+@media (max-width: 768px) {
+  :host {
+    height: 64px;
+  }
+
+  .header-inner {
+    padding: 0 $spacing-sm;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .profile .username {
+    display: none; /* hide on mobile */
+  }
+
+  .menu-btn {
+    font-size: 22px;
+    padding: 6px;
   }
 }

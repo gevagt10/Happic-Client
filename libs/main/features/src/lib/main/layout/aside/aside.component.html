@@ -1,8 +1,25 @@
 <aside class="aside">
+  <!-- =========================
+       HEADER / LOGO
+       ========================= -->
   <div class="aside-logo">
+    <span class="logo-short">H</span>
     <span class="logo-text">Happic</span>
+
+    <!-- Mobile close button -->
+    <button
+      class="close-btn"
+      type="button"
+      aria-label="Close menu"
+      (click)="clickClose.emit()"
+    >
+      ✕
+    </button>
   </div>
 
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
   <nav class="aside-nav">
     <a
       routerLink="/feed"
@@ -10,7 +27,7 @@
       class="nav-item"
     >
       <span class="icon">🏠</span>
-      <span>Feed</span>
+      <span class="label">Feed</span>
     </a>
 
     <a
@@ -19,7 +36,7 @@
       class="nav-item"
     >
       <span class="icon">📅</span>
-      <span>My Events</span>
+      <span class="label">My Events</span>
     </a>
 
     <a
@@ -28,7 +45,7 @@
       class="nav-item"
     >
       <span class="icon">🎯</span>
-      <span>Event</span>
+      <span class="label">Event</span>
     </a>
   </nav>
 </aside>

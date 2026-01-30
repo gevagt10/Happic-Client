@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -8,4 +8,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './aside.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AsideComponent {}
+export class AsideComponent {
+  clickClose = output<void>();
+}

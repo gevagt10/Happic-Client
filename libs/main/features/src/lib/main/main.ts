@@ -10,5 +10,11 @@ import { HeaderComponent } from './layout/header/header.component';
   styleUrl: './main.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Main {}
+export class Main {
+  isAsideCollapsed = false;
+
+  toggleAside() {
+    this.isAsideCollapsed = !this.isAsideCollapsed;
+  }
+}
 //https://geeksui.codescandy.com/geeks/pages/dashboard/dashboard-analytics.html

@@ -1,8 +1,11 @@
-<div class="app-layout">
-  <lib-aside />
+<div class="app-layout" [class.aside-collapsed]="isAsideCollapsed">
+  <lib-aside
+    (clickClose)="toggleAside()"
+  />
 
   <div class="app-main">
-    <lib-header />
+    <lib-header (menuClick)="toggleAside()" />
+
     <main class="app-content">
       <router-outlet></router-outlet>
     </main>
