@@ -22,11 +22,10 @@ export class AuthActionsService {
       .pipe(
         take(1),
         tap((response: IAuthResponse) => {
-          console.log(response);
           this.authStoreService.updateState(LoadingStateEnum.LOADED);
           this.authStoreService.updateToken(response.access_token);
           this.authStoreService.updateUserProfile(response.userProfile ?? null);
-
+          this.tokenStorageService.save(response);
           this.router.navigate(['/users']);
         }),
         catchError(() => {

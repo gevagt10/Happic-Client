@@ -40,7 +40,7 @@ export class TokenRefreshService {
 
     // Check if AuthStore has not token
     const accessToken = this.tokenStorageService.accessToken;
-    if (accessToken) this.authStoreService.updateToken(accessToken);
+    if (accessToken && !refreshToken) this.authStoreService.updateToken(accessToken);
 
     return this.authApiService.refreshToken(refreshToken).pipe(
       tap((res: IAuthResponse) => this.tokenStorageService.save(res)),

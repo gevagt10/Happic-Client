@@ -1,9 +1,9 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, switchMap, throwError } from 'rxjs';
-import { AuthStoreService } from '../services/auth-store.service';
 import { TokenRefreshService } from '../services/token-refresh-service';
 import { getJwtExp } from '../utils/get-jwt-exp.utils';
+import { AuthStoreService } from '../services/auth-store.service';
 
 const EXPIRY_BUFFER_MS = 30_000; // refresh 30s before exp
 
